@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>This is the {{ title }} page.</h1>
+<div class="map">
+     <img src="{{ map }}" style="position: relative" width="600" height="648">
+     <p id ="util_map" ></p> <!-- 465 269.4 -->
+</div>
+<!-- Util options -->
+<br>
+
+<script>
+     function showLineup() {
+          var util_id = document.getElementById("utilselect").value
+          console.log(util_id)
+          {% for util in utils if util.map == 1 %}
+               console.log( {{ util.id }} )
+               if (util_id == {{ util.id }} ){
+                    var util_x = ({{ util.util_x }}*0.6 - 16)
+                    util_x = util_x.toString(10)
+                    var util_y = ({{ util.util_y }}*0.6 - 16)
+                    util_y = util_y.toString(10)
+                    document.getElementById("util_map").outerHTML = "<p id =\"util_map\" class=\"smoke\" style=\"position: absolute; left: " + util_x + "px; top: " + util_y + "px\">";
+                    document.getElementById("lineup_image").innerHTML = "<img src=\""+ "static/lineups/" + "{{ util.lineup_image }}" + "\" width=\"384\" height=\"216\">";
+                    document.getElementById("pos_image").innerHTML = "<img src=\""+ "static/positions/" + "{{ util.pos_image }}" + "\" width=\"384\" height=\"216\">";
+                    document.getElementById("util_image").innerHTML = "<img src=\""+ "static/utility/" + "{{ util.util_image }}" + "\" width=\"384\" height=\"216\">";
+                    document.getElementById("note").innerHTML = "{{ util.note }}";
+               }
+          {% endfor %}
+     }
+</script>
+
+<select id="utilselect" onchange="showLineup()">
+     <option value=0></option>
+     {% for util in utils if util.map == 1  %}
+     <option value={{ util.id }}>{{ util.title }}</option>
+     {% endfor %}
+</select>
+<p id="lineup_image"></p>
+<p id="pos_image"></p>
+<p id="util_image"></p>
+<p id="note"></p>
+
+{% endblock content %}
+

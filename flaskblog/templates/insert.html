@@ -1,0 +1,111 @@
+<h1>Submit Lineup</h1>
+<form method='POST'>
+    <label for="title">Lineup Title:</label>
+    <input type="text" id="title" name="title"><br>
+    <label for="id">Lineup Id:</label>
+    <input type="number" id="id" name="id"><br>
+    <fieldset>
+        <legend>Utility Type</legend>
+        <label for="bite">Snake Bite</label>
+        <input type="radio" id="bite" name="type" value=1>
+        <label for="smoke">Smoke</label>
+        <input type="radio" id="smoke" name="type" value=2>
+        <label for="wall">Wall</label>
+        <input type="radio" id="wall" name="type" value=3>
+        <label for="ult">Ultimate</label>
+        <input type="radio" id="ult" name="type" value=4>
+    </fieldset>
+    <fieldset>
+        <legend>Map</legend>
+        <label for="bind">Bind</label>
+        <input type="radio" id="bind" name="map" onchange="changeMap(this.value)" value=1>
+        <label for="haven">Haven</label>
+        <input type="radio" id="haven" name="map" onchange="changeMap(this.value)" value=2>
+        <label for="split">Split</label>
+        <input type="radio" id="split" name="map" onchange="changeMap(this.value)" value=3>
+        <label for="ascent">Ascent</label>
+        <input type="radio" id="ascent" name="map" onchange="changeMap(this.value)" value=4>
+        <label for="icebox">Icebox</label>
+        <input type="radio" id="icebox" name="map" onchange="changeMap(this.value)" value=5>
+    </fieldset>
+    <fieldset>
+        <legend>One-way?</legend>
+        <label for="true">True</label>
+        <input type="radio" id="true" name="oneway" value=True>
+        <label for="false">False</label>
+        <input type="radio" id="false" name="oneway" value=False>
+    </fieldset>
+    <fieldset>
+        <legend>Attack?</legend>
+        <label for="true_a">True</label>
+        <input type="radio" id="true_a" name="attack" value=True>
+        <label for="false_a">False</label>
+        <input type="radio" id="false_a" name="attack" value=False>
+    </fieldset>
+    <label for="note">Note:</label>
+    <input type="text" id="note" name="note"><br>
+    <p></p>
+    <h2>Click to place utility location.</h2>
+    <img id="util_map" onclick="selectCoordu(event)" src="static/maps/bind.png" ><br>
+    <script>
+        function selectCoordu(event){
+            var x = event.offsetX;
+            var y = event.offsetY;
+            var coord = "You selected: " + x + "," + y;
+            console.log(document.getElementById("util_x").getAttribute("value"))
+            document.getElementById("selectedu").innerHTML = coord
+            document.getElementById("util_x").value = x
+            document.getElementById("util_y").value = y
+        }
+
+        function selectCoordp(event){
+            var x = event.offsetX;
+            var y = event.offsetY;
+            var coord = "You selected: " + x + "," + y;
+            document.getElementById("selectedp").innerHTML = coord
+            document.getElementById("pos_x").value = x
+            document.getElementById("pos_y").value = y
+        }
+
+        function removeElement(){
+            document.getElementById("selectedu").innerHTML= ""
+        }
+
+        function changeMap(map){
+            if (map == 1){
+                document.getElementById("util_map").src = "static/maps/bind.png"
+                document.getElementById("player_map").src = "static/maps/bind.png"
+            } 
+            else if (map == 2){
+                document.getElementById("util_map").src = "static/maps/haven.png"
+                document.getElementById("player_map").src = "static/maps/haven.png"
+            } 
+            else if (map == 3) {
+                document.getElementById("util_map").src = "static/maps/split.png"
+                document.getElementById("player_map").src = "static/maps/split.png"
+            }
+            else if (map == 4) {
+                document.getElementById("util_map").src = "static/maps/ascent.png"
+                document.getElementById("player_map").src = "static/maps/ascent.png"
+            }
+            else if (map == 5) {
+                document.getElementById("util_map").src = "static/maps/icebox.png"
+                document.getElementById("player_map").src = "static/maps/icebox.png"
+            }
+        }
+    </script>
+    <label for="util_x">Utility X:</label>
+    <input type="text" id="util_x" name="util_x" value=0>
+    <label for="util_y">Utility Y:</label>
+    <input type="text" id="util_y" name="util_y" value=0>
+    <p id="selectedu"></p>
+    <h2>Click to place player location.</h2>
+    <img id="player_map" onclick="selectCoordp(event)" src="static/maps/bind.png" ><br>
+    <label for="pos_x">Position X:</label>
+    <input type="text" id="pos_x" name="pos_x" value=0>
+    <label for="pos_y">Position Y:</label>
+    <input type="text" id="pos_y" name="pos_y" value=0>
+    <p id="selectedp"></p>
+    <input type="submit" value="Submit">
+    
+</form>
