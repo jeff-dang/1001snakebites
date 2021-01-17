@@ -5,7 +5,7 @@ Python Flask project in a web app designed to help Valorant players remember the
 # Why I made it
 Viper is currently one of the lowest pick rate agents due to high requirements of knowledge in her utility to be fully effective as agent compared to the rest of the cast. Having a simple web-app to remind/teach players to make full use of her utility will help them assist their team to victory.
 # How to use
-I recommend to first learn the lineups and throws in a custom practice game, and then in game use 1001 Snakebites as a reference guide to quickly remind yourself how to do any of the wanted lineups.
+Begin by learn the lineups and throws in a custom practice game as to familarize with the lineups, and then in game use 1001 Snakebites as a reference guide to remind the player of the procedure theh wanted lineups.
 # Current system
 - Pages for all current maps in the game with associated lineups
 - SQLAlchemy database
