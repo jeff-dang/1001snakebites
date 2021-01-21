@@ -1,5 +1,6 @@
 # 1001 Snakebites
-Python Flask project in a web app designed to help Valorant players remember their Viper lineups. Currently available at https://dorps.pythonanywhere.com/!
+Python Flask project in a web app designed to help Valorant players remember their Viper lineups. 
+Currently available at https://dorps.pythonanywhere.com/!
 # What it is and what it does
 1001 Snakebites is a player assistance tool where players can learn, review, or remind themselves during a game how to do utility line ups. 
 # Why I made it
