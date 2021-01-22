@@ -11,7 +11,7 @@ Begin by learn the lineups and throws in a custom practice game as to familarize
 # Current system
 - Pages for all current maps in the game with associated lineups
 - SQLAlchemy database
-- HTML controller page for easier adding of new lineups into the SQLAlchemy database
+- HTML page for easier adding of new lineups into the SQLAlchemy database
 # Future plans
 - Add more lineups for all utility
 - Search function to skim all the available lineups
